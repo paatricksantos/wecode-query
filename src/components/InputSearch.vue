@@ -8,6 +8,7 @@
         class=""
         v-model.trim="cnpj"
         @input="handleChange"
+        placeholder="Digite o seu cpnj"
       />
       <button type="submit">Pesquisar</button>
     </div>
