@@ -20,6 +20,7 @@
 
 <script>
 import { changePosition, validation } from "../helpers";
+import { api } from "../services/api";
 export default {
   name: "InputSearch",
   data: function () {
@@ -53,10 +54,7 @@ export default {
         return;
       }
 
-      const response = await fetch(
-        `https://www.receitaws.com.br/v1/cnpj/${formatCNPJ}`
-      );
-      const companie = await response.json();
+      const companie = await api.get(formatCNPJ);
       if (companie.status === "ERROR") {
         this.$store.state.error = this.$store.state.errors.notFound;
         return;
