@@ -55,6 +55,7 @@ export default {
       }
 
       const companie = await api.get(formatCNPJ);
+
       if (companie.status === "ERROR") {
         this.$store.state.error = this.$store.state.errors.notFound;
         return;
